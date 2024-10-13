@@ -10,7 +10,7 @@ from datetime import datetime
 
 config = {
     'user': 'root',
-    'password': 'YOUR PASSWORD',
+    'password': '',
     'host': '127.0.0.1',
     'database': 'bacchus',
     'raise_on_warnings': True,
@@ -49,7 +49,7 @@ def get_employee_report():
         if employee[2] > 8:
             projection = employee[2] - 8
             print("Employee: {} [ID: {}] Hours Worked: {} | Projected Overtime: {}".format(employee[1], employee[0],
-                                                                                           employee[2], projection))
+            employee[2], projection))
         else:
             print("Employee: {} [ID: {}] Hours Worked: {}".format(employee[1], employee[0], employee[2]))
 
@@ -83,7 +83,7 @@ def get_wine_report():
 try:
     db = mysql.connector.connect(**config)
     print("\n Database user {} connected to MySQL on host {} with database {}".format(config['user'], config['host'],
-                                                                                      config['database']))
+    config['database']))
     input("\n Press any key to generate reports...")
 
     cursor = db.cursor()
